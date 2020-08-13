@@ -6,7 +6,12 @@ import mongoose from "mongoose";
 import password from "./db_password";
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 const uri = `mongodb+srv://kwon_:${password}@clusterforreviews.a5pds.mongodb.net/ori_?retryWrites=true&w=majority`;
 mongoose.Promise = global.Promise;
